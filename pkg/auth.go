@@ -23,7 +23,7 @@ type Auth struct {
 func (q Questrade) RefreshToken() (Auth, error) {
 	client := &http.Client{}
 
-	url := fmt.Sprintf(authURL, q.token)
+	url := fmt.Sprintf("%s%s", authURL, q.token)
 	resp, err := client.Get(url)
 	if err != nil {
 		return Auth{}, err
